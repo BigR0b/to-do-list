@@ -11,6 +11,26 @@ const todo = (title, description, dueDate, priority) => {
 };
 
 const addToList = todo => todoList.push(todo);
+const removeFromList = index => todoList.splice(index, 1);
 
-export default todo;
-export { todoList };
+const projectList = [];
+
+const project = (name, todos) => {
+  name = name;
+  todos = todos;
+  return { name, todos };
+};
+
+const addProject = project => projectList.push(project);
+const removeProject = index => projectList.splice(index, 1);
+
+export {
+  todo,
+  project,
+  todoList,
+  projectList,
+  addToList,
+  removeFromList,
+  addProject,
+  removeProject,
+};
