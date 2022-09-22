@@ -2,7 +2,6 @@
 import {
   todo,
   project,
-  todoList,
   projectList,
   addToList,
   removeFromList,
@@ -10,6 +9,17 @@ import {
   removeProject,
 } from './todo';
 
-addToList(todo('Test', 'Testing', '', ''));
-addToList(todo('test2', 'testing 2', '', ''));
-console.log(todoList[1]);
+const defaultProject = project('Default folder');
+addProject(defaultProject);
+
+let defaultTodo = todo('Default todo', 'Making a default todo list', '', '');
+
+const defaultProjectFolder = document.createElement('div');
+const body = document.querySelector('body');
+addToList(defaultTodo, projectList[0].todo);
+console.table(projectList);
+console.table(projectList[0]);
+console.table(projectList[0].todo);
+defaultProjectFolder.textContent = projectList[0].name;
+
+body.appendChild(defaultProjectFolder);
