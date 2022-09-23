@@ -17,6 +17,36 @@
     <title>Todo List</title>
   </head>
   <body>
+    <div id="container">
+      <nav id="navbar">
+        <h1>Todo List</h1>
+      </nav>
+      <div id="project">
+        <h2>Projects</h2>
+      </div>
+      <div id="todo">
+        <h2>Todos</h2>
+        <form action="">
+          <div>
+            <label for="description">Description</label>
+            <input type="text" name="" id="description" />
+          </div>
+          <div>
+            <label for="date">Date</label>
+            <input type="date" name="" id="date" />
+          </div>
+          <div>
+            <label for="priority">priority</label>
+            <select name="" id="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
     <script src="bundle.js"></script>
   </body>
 </html>
