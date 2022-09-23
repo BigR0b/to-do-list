@@ -11,12 +11,11 @@ const project = name => {
 const addProject = project => projectList.push(project);
 const removeProject = index => projectList.splice(index, 1);
 
-const todo = (title, description, dueDate, priority) => {
-  title = title;
+const todo = (description, dueDate, priority) => {
   description = description;
   dueDate = dueDate;
   priority = priority;
-  return { title, description, dueDate, priority };
+  return { description, dueDate, priority };
 };
 
 const addToList = (todo, todoList) => todoList.push(todo);
