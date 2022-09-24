@@ -35,7 +35,7 @@ nav {
   border: 2px solid var(--grey);
   background-color: var(--light-grey);
   border-radius: 10px;
-  justify-content: center;
+  justify-content: space-between;
   height: 25px;
   width: 700px;
 }
