@@ -13,13 +13,25 @@ textLabel.textContent = 'Description';
 const textInput = document.createElement('input');
 textInput.setAttribute('type', 'text');
 textInput.setAttribute('id', 'description');
-
 formText.appendChild(textLabel);
 formText.appendChild(textInput);
-
 todoForm.appendChild(formText);
 
-todoFolder.appendChild(todoForm);
 //form date input
+const formDate = document.createElement('div');
+const dateLabel = document.createElement('label');
+dateLabel.setAttribute('for', 'date');
+dateLabel.textContent = 'Date';
+const dateInput = document.createElement('input');
+dateInput.setAttribute('type', 'date');
+dateInput.setAttribute('id', 'date');
+formDate.appendChild(dateLabel);
+formDate.appendChild(dateInput);
+todoForm.appendChild(formDate);
+todoFolder.appendChild(todoForm);
+
+//form priority input
+const formPriority = document.createElement('div');
+const priorityLabel = document.createElement('label');
 
 export {};
