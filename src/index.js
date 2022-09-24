@@ -9,7 +9,8 @@ import {
   addProject,
   removeProject,
 } from './todo';
-
+import { projectsFolder, todoFolder } from './ui';
+console.log(projectsFolder);
 // const defaultProject = project('Default folder');
 // addProject(defaultProject);
 
