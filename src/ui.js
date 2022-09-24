@@ -62,4 +62,11 @@ const createFrom = () => {
   todoFolder.appendChild(todoForm);
 };
 
-export { createFrom };
+const addToProject = projects => {
+  projects.forEach(project => {
+    const projectFolder = document.createElement('div');
+    projectFolder.textContent = project.name;
+    projectsFolder.appendChild(projectFolder);
+  });
+};
+export { createFrom, addToProject };
