@@ -1,3 +1,7 @@
+:root {
+  --grey: #58565665;
+  --light-grey: #d1ccccfa;
+}
 body {
   margin: 0;
   padding: 0;
@@ -19,7 +23,19 @@ nav {
 }
 #todo {
   background: coral;
-}
-form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#todo-list-form {
+  padding: 5px;
+  margin-left: 20px;
+  display: flex;
+  border: 2px solid var(--grey);
+  background-color: var(--light-grey);
+  border-radius: 10px;
+  justify-content: center;
+  height: 25px;
+  width: 700px;
 }
