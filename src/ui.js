@@ -28,10 +28,30 @@ dateInput.setAttribute('id', 'date');
 formDate.appendChild(dateLabel);
 formDate.appendChild(dateInput);
 todoForm.appendChild(formDate);
-todoFolder.appendChild(todoForm);
 
-//form priority input
-const formPriority = document.createElement('div');
-const priorityLabel = document.createElement('label');
+//form select input
+const formSelect = document.createElement('div');
+const selectLabel = document.createElement('label');
+selectLabel.setAttribute('for', 'priority');
+selectLabel.textContent = 'Priority';
+const selectInput = document.createElement('select');
+selectInput.setAttribute('id', 'priority');
+const lowPriority = document.createElement('option');
+lowPriority.setAttribute('value', 'low');
+lowPriority.textContent = 'Low';
+const midPriority = document.createElement('option');
+midPriority.setAttribute('value', 'medium');
+midPriority.textContent = 'Medium';
+const highPriority = document.createElement('option');
+highPriority.setAttribute('value', 'high');
+highPriority.textContent = 'High';
+selectInput.appendChild(lowPriority);
+selectInput.appendChild(midPriority);
+selectInput.appendChild(highPriority);
+formSelect.appendChild(selectLabel);
+formSelect.appendChild(selectInput);
+todoForm.appendChild(formSelect);
+
+todoFolder.appendChild(todoForm);
 
 export {};
