@@ -52,6 +52,12 @@ formSelect.appendChild(selectLabel);
 formSelect.appendChild(selectInput);
 todoForm.appendChild(formSelect);
 
+//form submit button
+const formSubmit = document.createElement('button');
+formSubmit.setAttribute('type', 'submit');
+formSubmit.textContent = 'Select';
+todoForm.appendChild(formSubmit);
+
 todoFolder.appendChild(todoForm);
 
 export {};
