@@ -35,14 +35,17 @@ nav {
   padding: 5px;
   margin-left: 20px;
   display: flex;
+  flex-direction: column;
   border: 2px solid var(--grey);
   background-color: var(--light-grey);
   border-radius: 10px;
-  justify-content: space-between;
-  height: 25px;
-  width: 700px;
+  justify-content: space-around;
+  align-items: center;
+  height: 250px;
+  width: 250px;
 }
-
+#todo-list-form::backdrop {
+}
 #project > div {
   width: 50%;
   border-bottom: 2px solid var(--light-grey);

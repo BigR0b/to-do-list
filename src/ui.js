@@ -4,6 +4,7 @@ const todoFolder = document.querySelector('#todo');
 
 const todoForm = document.createElement('form');
 todoForm.setAttribute('id', 'todo-list-form');
+todoForm.classList.add('hidden');
 
 const createFrom = () => {
   //form text input
@@ -61,6 +62,12 @@ const createFrom = () => {
 
   todoFolder.appendChild(todoForm);
 };
+
+const createFormBtn = document.createElement('button');
+createFormBtn.setAttribute('type', 'button');
+createFormBtn.setAttribute('id', 'create-form');
+createFormBtn.textContent = 'Add Todo';
+todoFolder.appendChild(createFormBtn);
 
 const addToProject = projects => {
   projects.forEach(project => {

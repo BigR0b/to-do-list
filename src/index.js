@@ -11,7 +11,6 @@ import {
 } from './todo';
 import { createFrom, addToProject } from './ui';
 
-createFrom();
 const defaultProject = project('Default folder');
 const project2 = project('Project 2');
 addProject(defaultProject);
