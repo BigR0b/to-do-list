@@ -9,13 +9,21 @@ import {
   addProject,
   removeProject,
 } from './todo';
-import { createFrom, addToProject } from './ui';
+import {
+  createFrom,
+  addToProject,
+  addFormBtn,
+  removeFormBtn,
+  todoFolder,
+} from './ui';
 
 const defaultProject = project('Default folder');
 const project2 = project('Project 2');
 addProject(defaultProject);
 addProject(project2);
 addToProject(projectList);
+
+addFormBtn();
 
 // let defaultTodo = todo('Default todo', 'Making a default todo list', '', '');
 

@@ -63,11 +63,18 @@ const createFrom = () => {
   todoFolder.appendChild(todoForm);
 };
 
-const createFormBtn = document.createElement('button');
-createFormBtn.setAttribute('type', 'button');
-createFormBtn.setAttribute('id', 'create-form');
-createFormBtn.textContent = 'Add Todo';
-todoFolder.appendChild(createFormBtn);
+const addFormBtn = () => {
+  const createFormBtn = document.createElement('button');
+  createFormBtn.setAttribute('type', 'button');
+  createFormBtn.setAttribute('id', 'create-form');
+  createFormBtn.textContent = 'Add Todo';
+  todoFolder.appendChild(createFormBtn);
+};
+
+const removeFormBtn = () => {
+  const formBtn = document.querySelector('#create-form');
+  todoFolder.removeChild(formBtn);
+};
 
 const addToProject = projects => {
   projects.forEach(project => {
@@ -76,4 +83,4 @@ const addToProject = projects => {
     projectsFolder.appendChild(projectFolder);
   });
 };
-export { createFrom, addToProject };
+export { createFrom, addToProject, addFormBtn, removeFormBtn, todoFolder };
