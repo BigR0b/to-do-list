@@ -2,11 +2,10 @@
 const projectsFolder = document.querySelector('#project');
 const todoFolder = document.querySelector('#todo');
 
-const todoForm = document.createElement('form');
-todoForm.setAttribute('id', 'todo-list-form');
-todoForm.classList.add('hidden');
-
 const createFrom = () => {
+  const todoForm = document.createElement('form');
+  todoForm.setAttribute('id', 'todo-list-form');
+
   //form text input
   const formText = document.createElement('div');
   const textLabel = document.createElement('label');
@@ -59,8 +58,12 @@ const createFrom = () => {
   formSubmit.setAttribute('type', 'submit');
   formSubmit.textContent = 'Select';
   todoForm.appendChild(formSubmit);
-
   todoFolder.appendChild(todoForm);
+  formSubmit.addEventListener('click', function (e) {
+    e.preventDefault();
+    addFormBtn();
+    removeForm();
+  });
 };
 
 const addFormBtn = () => {
@@ -69,13 +72,20 @@ const addFormBtn = () => {
   createFormBtn.setAttribute('id', 'create-form');
   createFormBtn.textContent = 'Add Todo';
   todoFolder.appendChild(createFormBtn);
+  createFormBtn.addEventListener('click', function () {
+    createFrom();
+    removeFormBtn();
+  });
 };
 
 const removeFormBtn = () => {
   const formBtn = document.querySelector('#create-form');
   todoFolder.removeChild(formBtn);
 };
-
+const removeForm = () => {
+  const todoFormModal = document.querySelector('#todo-list-form');
+  todoFolder.removeChild(todoFormModal);
+};
 const addToProject = projects => {
   projects.forEach(project => {
     const projectFolder = document.createElement('div');
