@@ -14,6 +14,7 @@ const createFrom = () => {
   const textInput = document.createElement('input');
   textInput.setAttribute('type', 'text');
   textInput.setAttribute('id', 'description');
+  textInput.required = true;
   formText.appendChild(textLabel);
   formText.appendChild(textInput);
   todoForm.appendChild(formText);
@@ -60,9 +61,11 @@ const createFrom = () => {
   todoForm.appendChild(formSubmit);
   todoFolder.appendChild(todoForm);
   formSubmit.addEventListener('click', function (e) {
-    e.preventDefault();
-    addFormBtn();
-    removeForm();
+    const isFormValid = todoForm.checkValidity();
+    if (isFormValid) {
+      e.preventDefault();
+      removeForm();
+    }
   });
 };
 
