@@ -15,14 +15,14 @@ import {
   removeFormBtn,
   todoFolder,
 } from './todoSection';
-import { addToProject } from './projectSection';
+import { addToProject, findIndex } from './projectSection';
 
 const defaultProject = project('Default folder');
 const project2 = project('Project 2');
 addProject(defaultProject);
 addProject(project2);
 addToProject(projectList);
-
+findIndex();
 addFormBtn();
 
 // let defaultTodo = todo('Default todo', 'Making a default todo list', '', '');
