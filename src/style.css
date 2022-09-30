@@ -45,7 +45,22 @@ nav {
   height: 250px;
   width: 250px;
 }
-
+#new-project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+#new-project > input {
+  width: 120px;
+  border: none;
+  background: antiquewhite;
+}
+#new-project > button {
+  border: none;
+  width: 100px;
+  height: 20px;
+  padding-left: 10px;
+}
 #projects-list > div {
   border-bottom: 2px solid var(--light-grey);
   padding-bottom: 5px;
