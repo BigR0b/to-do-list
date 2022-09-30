@@ -1,5 +1,5 @@
 'use strict';
-const projectsFolder = document.querySelector('#project');
+import { todo } from './todo';
 const todoFolder = document.querySelector('#todo');
 
 const createFrom = () => {
@@ -64,7 +64,11 @@ const createFrom = () => {
     const isFormValid = todoForm.checkValidity();
     if (isFormValid) {
       e.preventDefault();
+      addFormBtn();
       removeForm();
+      let task = textInput.value;
+      let date = dateInput.value;
+      let priority = selectInput.value;
     }
   });
 };
@@ -89,11 +93,5 @@ const removeForm = () => {
   const todoFormModal = document.querySelector('#todo-list-form');
   todoFolder.removeChild(todoFormModal);
 };
-const addToProject = projects => {
-  projects.forEach(project => {
-    const projectFolder = document.createElement('div');
-    projectFolder.textContent = project.name;
-    projectsFolder.appendChild(projectFolder);
-  });
-};
-export { createFrom, addToProject, addFormBtn, removeFormBtn, todoFolder };
+
+export { createFrom, addFormBtn, removeFormBtn, todoFolder };

@@ -11,11 +11,11 @@ import {
 } from './todo';
 import {
   createFrom,
-  addToProject,
   addFormBtn,
   removeFormBtn,
   todoFolder,
-} from './ui';
+} from './todoSection';
+import { addToProject } from './projectSection';
 
 const defaultProject = project('Default folder');
 const project2 = project('Project 2');

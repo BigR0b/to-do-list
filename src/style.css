@@ -46,14 +46,13 @@ nav {
   width: 250px;
 }
 
-#project > div {
-  width: 50%;
+#projects-list > div {
   border-bottom: 2px solid var(--light-grey);
   padding-bottom: 5px;
   margin-top: 15px;
 }
 
-#project > div:hover {
+#projects-list > div:hover {
   box-shadow: 0px 7px 5px -3px var(--grey);
   cursor: pointer;
 }
