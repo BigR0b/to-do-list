@@ -15,33 +15,14 @@ const addToProject = projects => {
   });
 };
 
-//!!!! CREATE A FORM FOR PROJECTS TO CREATE A NEW PROJECT
-const createProjectFrom = () => {
-  const projectForm = document.createElement('form');
-  projectForm.setAttribute('id', 'project-list-form');
+const newProjectBtn = document.querySelector('#projectBtn');
+newProjectBtn.addEventListener('click', function (e) {
+  const isFormValid = document.querySelector('#new-project').checkValidity();
+  if (isFormValid) {
+    e.preventDefault();
 
-  //form text input
-  const projectText = document.createElement('div');
-  const textLabel = document.createElement('label');
-  textLabel.setAttribute('for', 'form-title');
-  textLabel.textContent = 'Description';
-  const textInput = document.createElement('input');
-  textInput.setAttribute('type', 'text');
-  textInput.setAttribute('id', 'form-title');
-  textInput.required = true;
-
-  const newProjectBtn = document.createElement('button');
-  newProjectBtn.setAttribute('type', 'submit');
-  newProjectBtn.textContent = 'Select';
-  project.appendChild(newProjectBtn);
-  newProjectBtn.addEventListener('click', function (e) {
-    const isFormValid = projectForm.checkValidity();
-    if (isFormValid) {
-      e.preventDefault();
-      addFormBtn();
-      removeForm();
-      let task = textInput.value;
-    }
-  });
-};
+    let projectName = document.querySelector('#project-name');
+    projectName.value = '';
+  }
+});
 export { addToProject, findIndex };
