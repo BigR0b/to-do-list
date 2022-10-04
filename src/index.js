@@ -31,5 +31,7 @@ newProjectBtn.addEventListener('click', function (e) {
     projectName.value = '';
   }
 });
-
+let defaultProject = project('Default');
+addProject(defaultProject);
+addToProjectUI(projectList);
 addFormBtn();

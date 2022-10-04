@@ -1,4 +1,4 @@
-import { projectList, removeProject } from './todo';
+import { projectList, removeProject, addProject } from './todo';
 let index = 0;
 
 const projectsList = document.querySelector('#projects-list');
