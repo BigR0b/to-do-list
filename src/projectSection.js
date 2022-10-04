@@ -1,30 +1,46 @@
+import { projectList, removeProject } from './todo';
+let index = 0;
+
 const projectsList = document.querySelector('#projects-list');
-const findIndex = () => {
-  for (let i = 0; i < projectsList.children.length; i++) {
-    projectsList.children[i].addEventListener('click', function () {
-      console.log(i);
-    });
-  }
-};
-const addToProject = projects => {
+
+const removeButtons = () => {
   while (projectsList.firstChild) {
     projectsList.removeChild(projectsList.firstChild);
   }
+  index = 0;
+};
+
+const addProjectBtns = projects => {
   projects.forEach(project => {
-    const projectItem = document.createElement('div');
+    const projectBtns = document.createElement('div');
+    projectBtns.classList.add('project-buttons');
+    const projectItem = document.createElement('button');
     projectItem.textContent = project.name;
-    projectsList.appendChild(projectItem);
+    const removeProjectBtn = document.createElement('button');
+    removeProjectBtn.classList.add('remove-project');
+    removeProjectBtn.textContent = 'X';
+    removeProjectBtn.setAttribute('data-index', index);
+    projectBtns.appendChild(projectItem);
+    projectBtns.appendChild(removeProjectBtn);
+    projectsList.appendChild(projectBtns);
+    index++;
   });
 };
 
-// const newProjectBtn = document.querySelector('#projectBtn');
-// newProjectBtn.addEventListener('click', function (e) {
-//   const isFormValid = document.querySelector('#new-project').checkValidity();
-//   if (isFormValid) {
-//     e.preventDefault();
+const removeProjectItem = () => {
+  const removeBtns = document.querySelectorAll('.remove-project');
+  removeBtns.forEach(removeBtn => {
+    removeBtn.addEventListener('click', function () {
+      removeProject(removeBtn.getAttribute('data-index'));
+      addToProjectUI(projectList);
+    });
+  });
+};
 
-//     let projectName = document.querySelector('#project-name');
-//     projectName.value = '';
-//   }
-// });
-export { addToProject, findIndex };
+const addToProjectUI = projects => {
+  removeButtons();
+  addProjectBtns(projects);
+  removeProjectItem();
+};
+
+export { addToProjectUI };
