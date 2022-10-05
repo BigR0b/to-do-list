@@ -14,12 +14,12 @@ const addProjectBtns = projects => {
   projects.forEach(project => {
     const projectBtns = document.createElement('div');
     projectBtns.classList.add('project-buttons');
+    projectBtns.setAttribute('data-index', index);
     const projectItem = document.createElement('button');
     projectItem.textContent = project.name;
     const removeProjectBtn = document.createElement('button');
     removeProjectBtn.classList.add('remove-project');
     removeProjectBtn.textContent = 'X';
-    removeProjectBtn.setAttribute('data-index', index);
     projectBtns.appendChild(projectItem);
     projectBtns.appendChild(removeProjectBtn);
     projectsList.appendChild(projectBtns);
@@ -31,7 +31,7 @@ const removeProjectItem = () => {
   const removeBtns = document.querySelectorAll('.remove-project');
   removeBtns.forEach(removeBtn => {
     removeBtn.addEventListener('click', function () {
-      removeProject(removeBtn.getAttribute('data-index'));
+      removeProject(removeBtn.parentElement.getAttribute('data-index'));
       addToProjectUI(projectList);
     });
   });
