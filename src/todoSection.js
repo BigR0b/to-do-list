@@ -7,6 +7,17 @@ const createFrom = () => {
   const todoForm = document.createElement('form');
   todoForm.setAttribute('id', 'todo-list-form');
 
+  const formExit = document.createElement('button');
+  formExit.setAttribute('type', 'button');
+  formExit.setAttribute('id', 'exit-form');
+  formExit.textContent = 'X';
+  todoForm.appendChild(formExit);
+  todoFolder.appendChild(todoForm);
+  formExit.addEventListener('click', function () {
+    removeForm();
+    addFormBtn();
+  });
+
   //form text input
   const formText = document.createElement('div');
   const textLabel = document.createElement('label');
@@ -71,10 +82,7 @@ const createFrom = () => {
       let date = dateInput.value;
       let priority = selectInput.value;
       let newTodo = todo(task, date, priority);
-      console.log(newTodo);
-      console.log(projectList[selectedProjectIndex].todo);
       addToList(newTodo, projectList[selectedProjectIndex].todo);
-      console.log(projectList[selectedProjectIndex].todo);
     }
   });
 };
