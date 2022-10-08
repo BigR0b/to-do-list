@@ -16,6 +16,7 @@ const addProjectBtns = projects => {
     projectBtns.classList.add('project-buttons');
     projectBtns.setAttribute('data-index', index);
     const projectItem = document.createElement('button');
+    projectItem.classList.add('select-project');
     projectItem.textContent = project.name;
     const removeProjectBtn = document.createElement('button');
     removeProjectBtn.classList.add('remove-project');
@@ -37,10 +38,21 @@ const removeProjectItem = () => {
   });
 };
 
+let selectedProjectIndex = 0;
+const selectProject = () => {
+  const selectBtns = document.querySelectorAll('.select-project');
+  selectBtns.forEach(selectBtn => {
+    selectBtn.addEventListener('click', function () {
+      selectedProjectIndex = selectBtn.parentElement.getAttribute('data-index');
+    });
+  });
+};
+
 const addToProjectUI = projects => {
   removeButtons();
   addProjectBtns(projects);
   removeProjectItem();
+  selectProject();
 };
 
-export { addToProjectUI };
+export { addToProjectUI, selectedProjectIndex };

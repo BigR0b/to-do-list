@@ -27,10 +27,10 @@ newProjectBtn.addEventListener('click', function (e) {
 
     addProject(createProject);
     addToProjectUI(projectList);
-
     projectName.value = '';
   }
 });
+
 let defaultProject = project('Default');
 addProject(defaultProject);
 addToProjectUI(projectList);

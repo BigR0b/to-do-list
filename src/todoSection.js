@@ -1,5 +1,6 @@
 'use strict';
-import { todo } from './todo';
+import { selectedProjectIndex } from './projectSection';
+import { addToList, projectList, todo } from './todo';
 const todoFolder = document.querySelector('#todo');
 
 const createFrom = () => {
@@ -69,6 +70,11 @@ const createFrom = () => {
       let task = textInput.value;
       let date = dateInput.value;
       let priority = selectInput.value;
+      let newTodo = todo(task, date, priority);
+      console.log(newTodo);
+      console.log(projectList[selectedProjectIndex].todo);
+      addToList(newTodo, projectList[selectedProjectIndex].todo);
+      console.log(projectList[selectedProjectIndex].todo);
     }
   });
 };
