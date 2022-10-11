@@ -76,15 +76,46 @@ const createFrom = () => {
     const isFormValid = todoForm.checkValidity();
     if (isFormValid) {
       e.preventDefault();
-      addFormBtn();
       removeForm();
       let task = textInput.value;
       let date = dateInput.value;
       let priority = selectInput.value;
       let newTodo = todo(task, date, priority);
       addToList(newTodo, projectList[selectedProjectIndex].todo);
+      createTodo();
+      addFormBtn();
     }
   });
+};
+
+//todo list
+let index = 0;
+
+const createTodo = () => {
+  const allTodos = document.querySelectorAll('.todo-list');
+  if (allTodos.length > 0) {
+    index = allTodos.length;
+  }
+  const todoList = document.createElement('div');
+  todoList.setAttribute('data-index', index);
+  todoList.classList.add('todo-list');
+
+  const todoText = document.createElement('div');
+  todoText.textContent =
+    projectList[selectedProjectIndex].todo[index].description;
+  todoList.appendChild(todoText);
+
+  const todoDate = document.createElement('div');
+  todoDate.textContent = projectList[selectedProjectIndex].todo[index].dueDate;
+  todoList.appendChild(todoDate);
+
+  const todoPriority = document.createElement('div');
+  todoPriority.textContent =
+    projectList[selectedProjectIndex].todo[index].priority;
+  todoList.appendChild(todoPriority);
+
+  todoFolder.appendChild(todoList);
+  index++;
 };
 
 const addFormBtn = () => {
