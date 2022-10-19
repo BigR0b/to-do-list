@@ -39,11 +39,14 @@ const removeProjectItem = () => {
 };
 
 let selectedProjectIndex = 0;
+let selectedProject;
 const selectProject = () => {
   const selectBtns = document.querySelectorAll('.select-project');
   selectBtns.forEach(selectBtn => {
     selectBtn.addEventListener('click', function () {
       selectedProjectIndex = selectBtn.parentElement.getAttribute('data-index');
+      selectedProject = projectList[selectedProjectIndex];
+      console.log(selectedProject);
     });
   });
 };
@@ -54,5 +57,5 @@ const addToProjectUI = projects => {
   removeProjectItem();
   selectProject();
 };
-
-export { addToProjectUI, selectedProjectIndex };
+console.log(selectedProject);
+export { addToProjectUI, selectedProjectIndex, selectedProject };

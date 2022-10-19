@@ -35,3 +35,5 @@ let defaultProject = project('Default');
 addProject(defaultProject);
 addToProjectUI(projectList);
 addFormBtn();
+const defaultButton = document.querySelector('.select-project');
+defaultButton.click();

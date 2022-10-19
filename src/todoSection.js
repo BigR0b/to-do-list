@@ -1,5 +1,5 @@
 'use strict';
-import { selectedProjectIndex } from './projectSection';
+import { selectedProjectIndex, selectedProject } from './projectSection';
 import { addToList, projectList, todo } from './todo';
 const todoFolder = document.querySelector('#todo');
 
@@ -72,7 +72,7 @@ const createFrom = () => {
   formSubmit.textContent = 'Select';
   todoForm.appendChild(formSubmit);
   todoFolder.appendChild(todoForm);
-  formSubmit.addEventListener('click', function (e) {
+  todoForm.addEventListener('submit', function (e) {
     const isFormValid = todoForm.checkValidity();
     if (isFormValid) {
       e.preventDefault();
@@ -101,17 +101,15 @@ const createTodo = () => {
   todoList.classList.add('todo-list');
 
   const todoText = document.createElement('div');
-  todoText.textContent =
-    projectList[selectedProjectIndex].todo[index].description;
+  todoText.textContent = selectedProject.todo[index].description;
   todoList.appendChild(todoText);
 
   const todoDate = document.createElement('div');
-  todoDate.textContent = projectList[selectedProjectIndex].todo[index].dueDate;
+  todoDate.textContent = selectedProject.todo[index].dueDate;
   todoList.appendChild(todoDate);
 
   const todoPriority = document.createElement('div');
-  todoPriority.textContent =
-    projectList[selectedProjectIndex].todo[index].priority;
+  todoPriority.textContent = selectedProject.todo[index].priority;
   todoList.appendChild(todoPriority);
 
   todoFolder.appendChild(todoList);
