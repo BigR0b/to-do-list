@@ -1,5 +1,5 @@
 import { projectList, removeProject, addProject } from './todo';
-import { deleteTodoList } from './todoSection';
+import { deleteTodoList, createTodo } from './todoSection';
 let index = 0;
 
 const projectsList = document.querySelector('#projects-list');
@@ -48,6 +48,7 @@ const selectProject = () => {
       selectedProjectIndex = selectBtn.parentElement.getAttribute('data-index');
       selectedProject = projectList[selectedProjectIndex];
       deleteTodoList();
+      createTodo(selectedProject.todo);
     });
   });
 };
@@ -58,5 +59,4 @@ const addToProjectUI = projects => {
   removeProjectItem();
   selectProject();
 };
-console.log(selectedProject);
 export { addToProjectUI, selectedProjectIndex, selectedProject };

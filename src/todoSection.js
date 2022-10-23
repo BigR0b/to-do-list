@@ -82,7 +82,7 @@ const createFrom = () => {
       let priority = selectInput.value;
       let newTodo = todo(task, date, priority);
       addToList(newTodo, projectList[selectedProjectIndex].todo);
-      createTodo();
+      createTodo(selectedProject.todo);
       addFormBtn();
     }
   });
@@ -99,27 +99,31 @@ const deleteTodoList = () => {
   index = 0;
 };
 
-const createTodo = () => {
+const createTodo = project => {
+  deleteTodoList();
   const allTodos = document.querySelectorAll('.todos');
   if (allTodos.length > 0) {
     index = allTodos.length;
   }
-  const todos = document.createElement('div');
-  todos.setAttribute('data-index', index);
-  todos.classList.add('todos');
+  project.forEach(todo => {
+    const todos = document.createElement('div');
+    todos.setAttribute('data-index', index);
+    todos.classList.add('todos');
 
-  const todoText = document.createElement('div');
-  todoText.textContent = selectedProject.todo[index].description;
-  todos.appendChild(todoText);
+    const todoText = document.createElement('div');
+    todoText.textContent = todo.description;
+    todos.appendChild(todoText);
 
-  const todoDate = document.createElement('div');
-  todoDate.textContent = selectedProject.todo[index].dueDate;
-  todos.appendChild(todoDate);
+    const todoDate = document.createElement('div');
+    todoDate.textContent = todo.dueDate;
+    todos.appendChild(todoDate);
 
-  const todoPriority = document.createElement('div');
-  todoPriority.textContent = selectedProject.todo[index].priority;
-  todos.appendChild(todoPriority);
-  todoList.appendChild(todos);
+    const todoPriority = document.createElement('div');
+    todoPriority.textContent = todo.priority;
+    todos.appendChild(todoPriority);
+    todoList.appendChild(todos);
+  });
+  console.log(selectedProject.todo[index]);
   index++;
 };
 
@@ -144,4 +148,11 @@ const removeForm = () => {
   todoFolder.removeChild(todoFormModal);
 };
 
-export { createFrom, addFormBtn, removeFormBtn, todoFolder, deleteTodoList };
+export {
+  createFrom,
+  addFormBtn,
+  removeFormBtn,
+  todoFolder,
+  deleteTodoList,
+  createTodo,
+};
