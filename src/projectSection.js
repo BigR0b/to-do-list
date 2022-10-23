@@ -1,4 +1,5 @@
 import { projectList, removeProject, addProject } from './todo';
+import { deleteTodoList } from './todoSection';
 let index = 0;
 
 const projectsList = document.querySelector('#projects-list');
@@ -46,7 +47,7 @@ const selectProject = () => {
     selectBtn.addEventListener('click', function () {
       selectedProjectIndex = selectBtn.parentElement.getAttribute('data-index');
       selectedProject = projectList[selectedProjectIndex];
-      console.log(selectedProject);
+      deleteTodoList();
     });
   });
 };

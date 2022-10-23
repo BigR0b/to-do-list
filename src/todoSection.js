@@ -90,29 +90,36 @@ const createFrom = () => {
 
 //todo list
 let index = 0;
+const todoList = document.querySelector('#todo-list');
+
+const deleteTodoList = () => {
+  while (todoList.firstChild) {
+    todoList.removeChild(todoList.firstChild);
+  }
+  index = 0;
+};
 
 const createTodo = () => {
-  const allTodos = document.querySelectorAll('.todo-list');
+  const allTodos = document.querySelectorAll('.todos');
   if (allTodos.length > 0) {
     index = allTodos.length;
   }
-  const todoList = document.createElement('div');
-  todoList.setAttribute('data-index', index);
-  todoList.classList.add('todo-list');
+  const todos = document.createElement('div');
+  todos.setAttribute('data-index', index);
+  todos.classList.add('todos');
 
   const todoText = document.createElement('div');
   todoText.textContent = selectedProject.todo[index].description;
-  todoList.appendChild(todoText);
+  todos.appendChild(todoText);
 
   const todoDate = document.createElement('div');
   todoDate.textContent = selectedProject.todo[index].dueDate;
-  todoList.appendChild(todoDate);
+  todos.appendChild(todoDate);
 
   const todoPriority = document.createElement('div');
   todoPriority.textContent = selectedProject.todo[index].priority;
-  todoList.appendChild(todoPriority);
-
-  todoFolder.appendChild(todoList);
+  todos.appendChild(todoPriority);
+  todoList.appendChild(todos);
   index++;
 };
 
@@ -137,4 +144,4 @@ const removeForm = () => {
   todoFolder.removeChild(todoFormModal);
 };
 
-export { createFrom, addFormBtn, removeFormBtn, todoFolder };
+export { createFrom, addFormBtn, removeFormBtn, todoFolder, deleteTodoList };
