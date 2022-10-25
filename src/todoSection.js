@@ -121,10 +121,30 @@ const createTodo = project => {
     const todoPriority = document.createElement('div');
     todoPriority.textContent = todo.priority;
     todos.appendChild(todoPriority);
+
+    const deleteTodoBtn = document.createElement('button');
+    deleteTodoBtn.textContent = 'Delete';
+    deleteTodoBtn.classList.add('delete-todo');
+    todos.appendChild(deleteTodoBtn);
+
     todoList.appendChild(todos);
+    index++;
   });
-  console.log(selectedProject.todo[index]);
-  index++;
+  deleteTodoItem();
+};
+
+const removeTodo = index => {
+  selectedProject.todo.splice(index, 1);
+};
+
+const deleteTodoItem = () => {
+  const deleteTodoBtns = document.querySelectorAll('.delete-todo');
+  deleteTodoBtns.forEach(deleteTodoBtn => {
+    deleteTodoBtn.addEventListener('click', function () {
+      removeTodo(deleteTodoBtn.parentElement.getAttribute('data-index'));
+      createTodo(selectedProject.todo);
+    });
+  });
 };
 
 const addFormBtn = () => {
