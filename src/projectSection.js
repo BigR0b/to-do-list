@@ -1,5 +1,5 @@
 import { projectList, removeProject, addProject } from './todo';
-import { deleteTodoList, createTodo } from './todoSection';
+import { deleteTodoList, createTodo, createTitle } from './todoSection';
 let index = 0;
 
 const projectsList = document.querySelector('#projects-list');
@@ -49,6 +49,7 @@ const selectProject = () => {
       selectedProject = projectList[selectedProjectIndex];
       deleteTodoList();
       createTodo(selectedProject.todo);
+      createTitle();
     });
   });
 };

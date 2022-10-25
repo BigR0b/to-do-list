@@ -168,6 +168,12 @@ const removeForm = () => {
   todoFolder.removeChild(todoFormModal);
 };
 
+//Todo Title
+const todoTitle = document.querySelector('#title');
+const createTitle = () => {
+  todoTitle.textContent = selectedProject.name;
+};
+
 export {
   createFrom,
   addFormBtn,
@@ -175,4 +181,5 @@ export {
   todoFolder,
   deleteTodoList,
   createTodo,
+  createTitle,
 };
