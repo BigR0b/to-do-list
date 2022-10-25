@@ -75,3 +75,22 @@ nav {
 .hidden {
   display: none;
 }
+
+.todos {
+  display: flex;
+  justify-content: space-between;
+  min-width: 600px;
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 1rem;
+}
+.todos > div:first-child {
+  width: 300px;
+}
+.todos > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
