@@ -1,6 +1,6 @@
 'use strict';
 import { selectedProjectIndex, selectedProject } from './projectSection';
-import { addToList, projectList, todo } from './todo';
+import { addToList, projectList, todo, addToStorage } from './todo';
 const todoFolder = document.querySelector('#todo');
 
 const createFrom = () => {
@@ -142,6 +142,7 @@ const deleteTodoItem = () => {
   deleteTodoBtns.forEach(deleteTodoBtn => {
     deleteTodoBtn.addEventListener('click', function () {
       removeTodo(deleteTodoBtn.parentElement.getAttribute('data-index'));
+      addToStorage();
       createTodo(selectedProject.todo);
     });
   });
