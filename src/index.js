@@ -31,8 +31,6 @@ newProjectBtn.addEventListener('click', function (e) {
   }
 });
 
-// let defaultProject = project('Default');
-// addProject(defaultProject);
 addToProjectUI(projectList);
 addFormBtn();
 const firstProject = document.querySelector('.select-project');
