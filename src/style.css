@@ -1,32 +1,32 @@
 :root {
   --grey: #58565665;
   --light-grey: #d1ccccfa;
+  --pink: rgb(197, 93, 142);
 }
 body {
+  color: var(--light-grey);
   margin: 0;
   padding: 0;
 }
 #container {
-  height: 100vh;
+  min-height: 100vh;
+  background: rgba(20, 20, 20, 0.945);
   display: grid;
   grid-template-rows: 1fr 8fr;
   grid-template-columns: 1fr 4fr;
   text-align: center;
 }
 nav {
-  background: aquamarine;
   grid-column: span 2;
 }
 #project {
-  background: antiquewhite;
   min-width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 2px solid var(--light-grey);
+  border-right: 2px solid var(--pink);
 }
 #todo {
-  background: coral;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,13 +37,14 @@ nav {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--grey);
-  background-color: var(--light-grey);
+  border: 2px solid var(--pink);
+  background-color: var(--grey);
   border-radius: 10px;
   justify-content: space-around;
   align-items: center;
   height: 250px;
   width: 250px;
+  position: relative;
 }
 #new-project {
   display: grid;
@@ -52,23 +53,22 @@ nav {
 }
 #new-project > input {
   width: 120px;
+  margin-left: 10px;
   border: none;
-  background: antiquewhite;
 }
 #new-project > button {
-  border: none;
   width: 100px;
   height: 20px;
   padding-left: 10px;
 }
 #projects-list > div {
-  border-bottom: 2px solid var(--light-grey);
+  border-bottom: 2px solid var(--pink);
   padding-bottom: 5px;
   margin-top: 15px;
 }
 
 #projects-list > div:hover {
-  box-shadow: 0px 7px 5px -3px var(--grey);
+  box-shadow: 0px 7px 5px -3px var(--pink);
   cursor: pointer;
 }
 
@@ -80,7 +80,7 @@ nav {
   display: flex;
   justify-content: space-between;
   min-width: 600px;
-  border: 1px solid black;
+  border: 1px solid var(--pink);
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 1rem;
@@ -93,4 +93,22 @@ nav {
   justify-content: center;
   align-items: center;
   margin: 5px;
+}
+
+button {
+  background: var(--grey);
+  color: var(--light-grey);
+  border: none;
+  border-radius: 4px;
+}
+
+#exit-form {
+  position: absolute;
+  top: 5px;
+  left: 235px;
+}
+
+.select-project {
+  margin-right: 5px;
+  max-width: 100px;
 }

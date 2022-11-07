@@ -69,7 +69,7 @@ const createFrom = () => {
   //form submit button
   const formSubmit = document.createElement('button');
   formSubmit.setAttribute('type', 'submit');
-  formSubmit.textContent = 'Select';
+  formSubmit.textContent = 'Submit';
   todoForm.appendChild(formSubmit);
   todoFolder.appendChild(todoForm);
   todoForm.addEventListener('submit', function (e) {
