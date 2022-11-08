@@ -23,7 +23,10 @@ body {
 }
 nav {
   grid-column: span 2;
-  font-size: 2rem;
+}
+nav > h1 {
+  font-size: 3rem;
+  margin: 10px;
 }
 #project {
   min-width: 250px;
