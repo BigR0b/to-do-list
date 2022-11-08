@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Eczar';
+  src: url(./Eczar/Eczar-VariableFont_wght.ttf);
+}
 :root {
   --grey: #58565665;
   --light-grey: #d1ccccfa;
@@ -5,11 +9,12 @@
 }
 body {
   color: var(--light-grey);
+  font-family: 'Eczar', Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
 #container {
-  min-height: 100vh;
+  max-height: 100vh;
   background: rgba(20, 20, 20, 0.945);
   display: grid;
   grid-template-rows: 1fr 8fr;
@@ -18,6 +23,7 @@ body {
 }
 nav {
   grid-column: span 2;
+  font-size: 2rem;
 }
 #project {
   min-width: 250px;
